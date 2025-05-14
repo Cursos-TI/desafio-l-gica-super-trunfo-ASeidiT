@@ -8,14 +8,14 @@
     char estado_1, estado_2;
     char codigo_1_1[4], codigo_2_2[4];
     char cidade_1_1[30], cidade_2_2[30];
-    int ptos_tur_1_1, ptos_tur_2_2;
+    int ptos_tur_1_1, ptos_tur_2_2, atributo_escolhido;
     unsigned long int populacao_1_1, populacao_2_2;
     float area_1_1, PIB_1_1, area_2_2, PIB_2_2, densid_pop_1, pib_percapita_1, densid_pop_2, pib_percapita_2;
     float superpoder1, superpoder2, inv_densid_1, inv_densid_2;
 
 // SAUDAÇÃO DE BOAS VINDAS AO JOGO
     printf("Olá, bem vindo ao jogo Super trunfo do curso de Análise de Sistemas Estácio - 1° Semestre 2025!\n");
-    printf("Precisamos começar cadastrando os dados das cartas do jogo.\n\n");
+    printf("***PRECISAMOS COMEÇAR INSERINDO OS DADOS DAS CARTAS DO JOGO.***\n\n");
 
 // CAPTURA DE VARIÁVEIS DA CARTA 1
     printf("DADOS DA CARTA 1:\n");
@@ -87,30 +87,133 @@
     printf("Pib per capita: R$ %.2f /hab\n", pib_percapita_2);
     printf("Super poder: %.2f\n\n", superpoder2);
 
-// COMPARANDO AS CARTAS
-// ATRIBUTO ESCOLHIDO = PIB per capita
+// BATALHA DE CARTAS
+// JOGADOR ESCOLHE O ATRIBUTO PARA COMPARAR
 
-    printf("COMPARAÇÃO DE CARTAS\n\n");
-    printf("Atributo: PIB Per Capita\n");
-    printf("Vence a carta com o maior PIB per capita\n\n");
+    printf("***AGORA, PODEMOS COMEÇAR A BATALHA DE CARTAS!***\n\n");
+    printf("ESCOLHA QUAL DOS ATRIBUTOS VOCÊ QUER COMPARAR\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Quantidade de pontos turísticos\n");
+    printf("5. Densidade populacional\n");
+    printf("6. PIB per capita\n");
+    printf("7. Super poder\n");
+    printf("ESCOLHA UMA OPÇÃO ENTRE 1 E 7: ");
+    scanf("%d", &atributo_escolhido);
 
-    printf("CARTA 1: %s - PIB per capita = R$ %.2f R$/hab\n", cidade_1_1, pib_percapita_1);
-    printf("CARTA 2: %s - PIB per capita = R$ %.2f R$/hab\n\n", cidade_2_2, pib_percapita_2);
+// RESULTADO DA ESCOLHA
 
-// RESULTADO DA COMPARAÇÃO
-
-    if (pib_percapita_1 > pib_percapita_2){
-        printf("Como CARTA 1 tem MAIOR PIB per capita,\n");
-        printf("RESULTADO: CARTA 1 - %s é VENCEDORA\n\n", cidade_1_1);
-    } else {
-        printf("Como CARTA 2 tem MAIOR PIB per capita,\n");
-        printf("RESULTADO: CARTA 2 - %s é VENCEDORA\n\n", cidade_2_2);
+    switch (atributo_escolhido)
+    {
+    case 1:
+        printf("\nATRIBUTO ESCOLHIDO: População\n");
+        printf("%s = %lu habitantes versus %s = %lu habitantes\n\n", cidade_1_1, populacao_1_1, cidade_2_2, populacao_2_2);
+        if (populacao_1_1 > populacao_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (populacao_1_1 < populacao_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 2:
+        printf("\nATRIBUTO ESCOLHIDO: Área\n");
+        printf("%s = %.2f km² versus %s = %.2f km²\n\n", cidade_1_1, area_1_1, cidade_2_2, area_2_2);
+        if (area_1_1 > area_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (area_1_1 < area_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 3:
+        printf("\nATRIBUTO ESCOLHIDO: PIB\n");
+        printf("%s = R$ %.2f bilhões versus %s = R$ %.2f bilhões\n\n", cidade_1_1, PIB_1_1, cidade_2_2, PIB_2_2);
+        if (PIB_1_1 > PIB_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (PIB_1_1 < PIB_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 4:
+        printf("\nATRIBUTO ESCOLHIDO: Quantidade de pontos turísticos\n");
+        printf("%s = %d pontos turísticos versus %s = %d pontos turísticos\n\n", cidade_1_1, ptos_tur_1_1, cidade_2_2, ptos_tur_2_2);
+        if (ptos_tur_1_1 > ptos_tur_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (ptos_tur_1_1 < ptos_tur_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 5:
+        printf("\nATRIBUTO ESCOLHIDO: Densidade populacional\n");
+        printf("%s = %.2f hab/km² versus %s = %.2f hab/km²\n\n", cidade_1_1, densid_pop_1, cidade_2_2, densid_pop_2);
+        printf("ATENÇÃO: PARA DENSIDADE POPULACIONAL, VENCE QUEM TEM O VALOR MENOR!\n\n");
+        if (densid_pop_1 > densid_pop_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else if (populacao_1_1 < populacao_2_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 6:
+        printf("\nATRIBUTO ESCOLHIDO: PIB per capita\n");
+        printf("%s = R$ %.2f /hab versus %s = R$ %.2f /hab\n\n", cidade_1_1, pib_percapita_1, cidade_2_2, pib_percapita_2);
+        if (pib_percapita_1 > pib_percapita_2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (pib_percapita_1 < pib_percapita_2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    case 7:
+        printf("\nATRIBUTO ESCOLHIDO: Super poder\n");
+        printf("%s = %.2f versus %s = %.2f\n\n", cidade_1_1, superpoder1, cidade_2_2, superpoder2);
+        if (superpoder1 > superpoder2)
+        {
+            printf("*** VENCEDOR: CARTA 1 - %s ***\n\n", cidade_1_1);
+        } else if (superpoder1 < superpoder2)
+        {
+            printf("*** VENCEDOR: CARTA 2 - %s ***\n\n", cidade_2_2);
+        } else
+        {
+            printf("*** EMPATE! ***\n\n");
+        }
+        break;
+    default:
+        printf("\nOPÇÃO INVÁLIDA!\n\n");
+        break;
     }    
   
-
 // MENSAGEM DE ENCERRAMENTO
     printf("FIM DE JOGO!\n");
     printf("ATÉ A PRÓXIMA PARTIDA!\n");
+    printf("PRESSIONE CTRL + F5 PARA REINICAR O JOGO\n");
 
 return 0;
 
