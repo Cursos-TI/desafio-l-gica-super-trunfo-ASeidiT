@@ -217,6 +217,8 @@
     printf("ESCOLHA UMA OPÇÃO ENTRE 1 E 6: ");
     scanf("%d", &atributo_escolhido2);
 
+// RESULTADO DA ESCOLHA
+
     if (atributo_escolhido1 == atributo_escolhido2)
     {
         printf("\nNÃO É PERMITIDO ESCOLHER O MESMO ATRIBUTO!\n");
@@ -318,6 +320,9 @@
         {
             
         } else {
+
+// CONVERTENDO OS ATRIBUTOS ESCOLHIDOS EM VALORES DAS VARIAVEIS
+
             if (atributo_escolhido1 == 1)
         {
             atributo_escolhido1 = populacao_1_1;
@@ -369,7 +374,9 @@
             atributo_escolhido2 = pib_percapita_1;
             atributo2_carta2 = pib_percapita_2;
         }
-                
+        
+        // SOMATÓRIO SÓ ACONTECE SE OS ATRIBUTOS SÃO VÁLIDOS
+
         soma_carta1 = atributo_escolhido1 + atributo_escolhido2;
         soma_carta2 = atributo1_carta2 + atributo2_carta2;
 
